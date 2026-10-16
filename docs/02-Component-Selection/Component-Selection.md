@@ -1,4 +1,5 @@
 
+
 ---
 title: Component Selection Example
 ---
@@ -15,7 +16,7 @@ title: Component Selection Example
 | MCP6004-I/P | \* Four op-amp channels in one package<br>\* Rail-to-rail input and output<br>\* Low power consumption<br>\* Operates from 1.8V to 6V | \* Lower bandwidth of 1 MHz<br>\* Relatively slow slew rate of 0.6 V/µs<br>\* Higher channel count may be unnecessary for simple circuits |
 | MCP6244-E/P | \* Four op-amp channels in one package<br>\* Rail-to-rail operation<br>\* Extended-temperature option<br>\* Suitable for low-voltage circuits | \* Requires verification of bandwidth and output drive for the application<br>\* Extended-temperature rating may be unnecessary<br>\* Supply voltage compatibility must be checked |
 
-**Choice:** Option 1: MCP6004-I/P quad operational amplifier
+**Choice:** Option 2: MCP6004-I/P quad operational amplifier
 
 **Rationale:** The MCP6004-I/P is the preferred choice because it provides four operational amplifier channels in a single package while maintaining low power consumption. Its rail-to-rail input and output capabilities make it suitable for low-voltage analog circuits. Its relatively low bandwidth is appropriate for applications that do not require high-speed signal processing.
 
@@ -43,7 +44,7 @@ title: Component Selection Example
 | FR 8 - 8 OHM | \* 8-ohm nominal impedance<br>\* Suitable for applications designed around an 8-ohm speaker<br>\* Potentially useful for general audio output | \* Requires an amplifier compatible with its impedance and power rating<br>\* Physical size may limit enclosure options<br>\* Exact power handling and sensitivity must be verified |
 | CSS-1021028N | \* Compact speaker option<br>\* Potentially suitable for space-constrained designs<br>\* Can be evaluated for basic audio or alert output | \* Exact impedance and power rating must be verified<br>\* Small speakers may have limited bass response and maximum volume<br>\* Requires a compatible amplifier |
 
-**Choice:** Option 1: FR 8 - 8 OHM speaker
+**Choice:** Option 2: FR 8 - 8 OHM speaker
 
 **Rationale:** The FR 8 - 8 OHM is the preferred choice because its nominal 8-ohm impedance can be compatible with a wide range of audio amplifier circuits designed for 8-ohm loads. Its suitability for the project will depend on its rated power handling, sensitivity, physical dimensions, and frequency response. These specifications should be confirmed before finalizing the circuit and enclosure design.
 
@@ -73,7 +74,7 @@ title: Component Selection Example
 | A1604 BK210J | \* Standard 9V battery format<br>\* Convenient and widely compatible with 9V battery holders<br>\* Simple to replace<br>\* Suitable for low-current portable applications | \* Limited capacity at high current draws<br>\* Voltage drops as the battery discharges<br>\* Not ideal for sustained 3A loads<br>\* Battery chemistry and discharge characteristics must be verified |
 | 6LF22XWA/B | \* Standard 9V battery format<br>\* Convenient for portable devices<br>\* No charging circuitry required if used as a primary battery<br>\* Suitable for intermittent, low-current loads | \* Not suitable for sustained 3A loads<br>\* Voltage sag and short runtime at high currents<br>\* Capacity depends on discharge rate and battery chemistry<br>\* Exact manufacturer specifications should be confirmed |
 
-**Choice:** Option 1: A1604 BK210J 9V battery
+**Choice:** Option 2: A1604 BK210J 9V battery
 
 **Rationale:** The A1604 BK210J is the preferred choice because its standard 9V format is convenient to integrate into a portable circuit and easy to replace. It is most appropriate for low-current operation or intermittent loads. If the project requires a sustained current approaching 3A, this battery is not suitable; a higher-capacity rechargeable battery pack designed for the required discharge current should be considered instead.
 
@@ -82,5 +83,20 @@ title: Component Selection Example
 | Solution | NA   | NA   |
 | -------- | ---- | ---- |
 | 232      | <br> | <br> |
+
+### Transistors
+
+**Small-Signal Bipolar Junction Transistors**
+
+| **Solution** | **Pros** | **Cons** |
+| --- | --- | --- |
+| 2N3904 | \* General-purpose NPN transistor suitable for switching and amplification<br>\* Collector-emitter voltage rating of 40V<br>\* Collector current rating of up to 200mA<br>\* Widely available and inexpensive<br>\* Suitable for low-power circuit applications | \* Limited to low-current applications<br>\* Requires a base resistor for typical switching applications<br>\* Not suitable for directly driving high-current loads |
+| 2N3906 | \* General-purpose PNP transistor suitable for switching and amplification<br>\* Complementary counterpart to the 2N3904<br>\* Collector-emitter voltage rating of approximately 40V<br>\* Useful for high-side switching and complementary amplifier circuits<br>\* Widely available and inexpensive | \* Limited to low-current applications<br>\* Requires appropriate base biasing and current limiting<br>\* PNP operation may require different control logic than an NPN transistor |
+| 2N3904BK | \* General-purpose NPN transistor suitable for switching and amplification<br>\* 40V collector-emitter voltage rating<br>\* Common TO-92 through-hole package<br>\* Low-cost alternative to other 2N3904 variants<br>\* Suitable for low-power circuit applications | \* Limited to low-current applications<br>\* Requires a base resistor for typical switching applications<br>\* Electrical characteristics and package pinout should be verified against the selected manufacturer's datasheet |
+
+**Choice:** Options 1 and 2: 2N3904 NPN transistor and 2N3906 PNP transistor
+
+**Rationale:** The 2N3904 and 2N3906 are the preferred choices because they provide complementary NPN and PNP transistor operation for general-purpose switching and amplification. Using both types allows the circuit to support different switching configurations and complementary analog stages. Their low cost and widespread availability make them practical choices for a student electronics project. The 2N3904BK is a viable alternative NPN transistor, but it offers no fundamental functional advantage over a standard 2N3904 without a specific manufacturer or sourcing requirement.
+
 
 
