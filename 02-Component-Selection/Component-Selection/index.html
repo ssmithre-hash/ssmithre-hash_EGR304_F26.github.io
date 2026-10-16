@@ -620,6 +620,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#transistors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transistors
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -932,6 +941,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#transistors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transistors
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -993,7 +1011,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 1: MCP6004-I/P quad operational amplifier</p>
+<p><strong>Choice:</strong> Option 2: MCP6004-I/P quad operational amplifier</p>
 <p><strong>Rationale:</strong> The MCP6004-I/P is the preferred choice because it provides four operational amplifier channels in a single package while maintaining low power consumption. Its rail-to-rail input and output capabilities make it suitable for low-voltage analog circuits. Its relatively low bandwidth is appropriate for applications that do not require high-speed signal processing.</p>
 <h3 id="5v-15-a-voltage-regulator">5V 1.5 A Voltage Regulator</h3>
 <p><strong>Voltage Regulators</strong></p>
@@ -1053,7 +1071,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 1: FR 8 - 8 OHM speaker</p>
+<p><strong>Choice:</strong> Option 2: FR 8 - 8 OHM speaker</p>
 <p><strong>Rationale:</strong> The FR 8 - 8 OHM is the preferred choice because its nominal 8-ohm impedance can be compatible with a wide range of audio amplifier circuits designed for 8-ohm loads. Its suitability for the project will depend on its rated power handling, sensitivity, physical dimensions, and frequency response. These specifications should be confirmed before finalizing the circuit and enclosure design.</p>
 <h3 id="9v-3a-unregulated-power-supply">9V 3A Unregulated Power Supply</h3>
 <p><strong>DC Power Input Connectors</strong></p>
@@ -1114,7 +1132,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Choice:</strong> Option 1: A1604 BK210J 9V battery</p>
+<p><strong>Choice:</strong> Option 2: A1604 BK210J 9V battery</p>
 <p><strong>Rationale:</strong> The A1604 BK210J is the preferred choice because its standard 9V format is convenient to integrate into a portable circuit and easy to replace. It is most appropriate for low-current operation or intermittent loads. If the project requires a sustained current approaching 3A, this battery is not suitable; a higher-capacity rechargeable battery pack designed for the required discharge current should be considered instead.</p>
 <h3 id="battery-connector">Battery Connector</h3>
 <table>
@@ -1133,6 +1151,36 @@
 </tr>
 </tbody>
 </table>
+<h3 id="transistors">Transistors</h3>
+<p><strong>Small-Signal Bipolar Junction Transistors</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Solution</strong></th>
+<th><strong>Pros</strong></th>
+<th><strong>Cons</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2N3904</td>
+<td>* General-purpose NPN transistor suitable for switching and amplification<br>* Collector-emitter voltage rating of 40V<br>* Collector current rating of up to 200mA<br>* Widely available and inexpensive<br>* Suitable for low-power circuit applications</td>
+<td>* Limited to low-current applications<br>* Requires a base resistor for typical switching applications<br>* Not suitable for directly driving high-current loads</td>
+</tr>
+<tr>
+<td>2N3906</td>
+<td>* General-purpose PNP transistor suitable for switching and amplification<br>* Complementary counterpart to the 2N3904<br>* Collector-emitter voltage rating of approximately 40V<br>* Useful for high-side switching and complementary amplifier circuits<br>* Widely available and inexpensive</td>
+<td>* Limited to low-current applications<br>* Requires appropriate base biasing and current limiting<br>* PNP operation may require different control logic than an NPN transistor</td>
+</tr>
+<tr>
+<td>2N3904BK</td>
+<td>* General-purpose NPN transistor suitable for switching and amplification<br>* 40V collector-emitter voltage rating<br>* Common TO-92 through-hole package<br>* Low-cost alternative to other 2N3904 variants<br>* Suitable for low-power circuit applications</td>
+<td>* Limited to low-current applications<br>* Requires a base resistor for typical switching applications<br>* Electrical characteristics and package pinout should be verified against the selected manufacturer's datasheet</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Choice:</strong> Options 1 and 2: 2N3904 NPN transistor and 2N3906 PNP transistor</p>
+<p><strong>Rationale:</strong> The 2N3904 and 2N3906 are the preferred choices because they provide complementary NPN and PNP transistor operation for general-purpose switching and amplification. Using both types allows the circuit to support different switching configurations and complementary analog stages. Their low cost and widespread availability make them practical choices for a student electronics project. The 2N3904BK is a viable alternative NPN transistor, but it offers no fundamental functional advantage over a standard 2N3904 without a specific manufacturer or sourcing requirement.</p>
 
 
 
