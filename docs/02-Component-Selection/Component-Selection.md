@@ -1,10 +1,9 @@
 
 
 ---
-title: Component Selection Example
+Component Selection
 ---
 
-## Examples
 
 ### Op-Amps
 
