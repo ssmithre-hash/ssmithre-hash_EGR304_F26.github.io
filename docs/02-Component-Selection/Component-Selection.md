@@ -1,58 +1,86 @@
+
 ---
 title: Component Selection Example
 ---
 
 ## Examples
 
-### Style 1
+### Op-Amps
 
-> This is the example found in the assignment, uses more html
+**Operational Amplifiers**
 
-*Table 1: Example component selection*
+| **Solution** | **Pros** | **Cons** |
+| --- | --- | --- |
+| MCP6022-I/P | \* Two op-amp channels in one package<br>\* Higher bandwidth of approximately 10 MHz<br>\* Faster slew rate than the MCP6004<br>\* Suitable for higher-speed analog signals | \* Requires a supply voltage of approximately 2.5V to 5.5V<br>\* Higher power consumption than the MCP6004<br>\* Only two channels per package |
+| MCP6004-I/P | \* Four op-amp channels in one package<br>\* Rail-to-rail input and output<br>\* Low power consumption<br>\* Operates from 1.8V to 6V | \* Lower bandwidth of 1 MHz<br>\* Relatively slow slew rate of 0.6 V/µs<br>\* Higher channel count may be unnecessary for simple circuits |
+| MCP6244-E/P | \* Four op-amp channels in one package<br>\* Rail-to-rail operation<br>\* Extended-temperature option<br>\* Suitable for low-voltage circuits | \* Requires verification of bandwidth and output drive for the application<br>\* Extended-temperature rating may be unnecessary<br>\* Supply voltage compatibility must be checked |
 
-**External Clock Module**
+**Choice:** Option 1: MCP6004-I/P quad operational amplifier
 
-| **Solution**                                                                                                                                                                                      | **Pros**                                                                                                                                    | **Cons**                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| ![](image1.png)<br>Option 1.<br> XC1259TR-ND surface mount crystal<br>$1/each<br>[link to product](http://www.digikey.com/product-detail/en/ECS-40.3-S-5PX-TR/XC1259TR-ND/827366)                 | \* Inexpensive[^1]<br>\* Compatible with PSoC<br>\* Meets surface mount constraint of project                                               | \* Requires external components and support circuitry for interface<br>\* Needs special PCB layout. |
-| ![](image3.png)<br>\* Option 2. <br>\* CTX936TR-ND surface mount oscillator <br>\* $1/each <br>\* [Link to product](http://www.digikey.com/product-detail/en/636L3I001M84320/CTX936TR-ND/2292940) | \* Outputs a square wave <br>\* Stable over operating temperature <br> \* Direct interface with PSoC (no external circuitry required) range | * More expensive <br>\* Slow shipping speed                                                         |
+**Rationale:** The MCP6004-I/P is the preferred choice because it provides four operational amplifier channels in a single package while maintaining low power consumption. Its rail-to-rail input and output capabilities make it suitable for low-voltage analog circuits. Its relatively low bandwidth is appropriate for applications that do not require high-speed signal processing.
 
-**Choice:** Option 2: CTX936TR-ND surface mount oscillator
+### 5V 1.5 A Voltage Regulator
 
-**Rationale:** A clock oscillator is easier to work with because it requires no external circuitry in order to interface with the PSoC. This is particularly important because we are not sure of the electrical characteristics of the PCB, which could affect the oscillation of a crystal. While the shipping speed is slow, according to the website if we order this week it will arrive within 3 weeks.
+**Voltage Regulators**
 
-### Style 2
+| **Solution** | **Pros** | **Cons** |
+| --- | --- | --- |
+| L7805ABV-DG | \* Fixed 5V output<br>\* Simple circuit design<br>\* Can supply up to approximately 1.5A under suitable thermal conditions<br>\* Widely used through-hole package | \* Requires adequate input-to-output voltage headroom<br>\* Can dissipate substantial heat at high currents<br>\* Requires thermal management and appropriate capacitors |
+| MCP1827-ADJE/AT | \* Adjustable output voltage<br>\* Rated for 1.5A output current<br>\* Low dropout voltage<br>\* Low quiescent current<br>\* Thermal and short-circuit protection | \* Maximum input voltage is 6V, so it cannot regulate a 9V input directly<br>\* Requires external resistors to set the output voltage<br>\* Linear-regulator efficiency decreases with increasing voltage drop |
+| TPS75901KCG3 | \* High current capability, up to 7.5A for the TPS759 family<br>\* Low dropout voltage<br>\* Enable and power-good features<br>\* Adjustable output voltage | \* Input voltage must remain within the device's specified range, up to 5.5V<br>\* Not suitable for direct 9V-to-5V regulation<br>\* Higher current capability may be unnecessary for a 1.5A application<br>\* Requires careful output-capacitor selection |
 
-> Also acceptable, more markdown friendly
+**Choice:** Option 1: L7805ABV-DG 5V linear voltage regulator
 
-**External Clock Module**
+**Rationale:** The L7805ABV-DG is the preferred choice because it provides a fixed 5V output and can support the required current under suitable thermal conditions. Its straightforward design simplifies circuit implementation. However, the power dissipated as heat must be considered carefully. With a 9V input and a 5V output at 1.5A, the regulator would dissipate approximately 6W, so appropriate heat sinking is necessary. A switching regulator may be more efficient if the circuit operates near its maximum current for extended periods.
 
-1. XC1259TR-ND surface mount crystal
+### Speaker
 
-    ![](image1.png)
+**Audio Output Speaker**
 
-    * $1/each
-    * [link to product](http://www.digikey.com/product-detail/en/ECS-40.3-S-5PX-TR/XC1259TR-ND/827366)
+| **Solution** | **Pros** | **Cons** |
+| --- | --- | --- |
+| CMS-28528N-L152 | \* Compact 28 mm diameter speaker<br>\* Nominal 8-ohm impedance<br>\* Up to 3W maximum input power<br>\* Frequency response extends to approximately 20 kHz<br>\* Lightweight construction | \* Approximately 750 Hz resonant frequency limits low-frequency performance<br>\* Requires an amplifier for suitable output volume<br>\* Small size limits bass response<br>\* Maximum power rating must not be exceeded |
+| FR 8 - 8 OHM | \* 8-ohm nominal impedance<br>\* Suitable for applications designed around an 8-ohm speaker<br>\* Potentially useful for general audio output | \* Requires an amplifier compatible with its impedance and power rating<br>\* Physical size may limit enclosure options<br>\* Exact power handling and sensitivity must be verified |
+| CSS-1021028N | \* Compact speaker option<br>\* Potentially suitable for space-constrained designs<br>\* Can be evaluated for basic audio or alert output | \* Exact impedance and power rating must be verified<br>\* Small speakers may have limited bass response and maximum volume<br>\* Requires a compatible amplifier |
 
-    | Pros                                      | Cons                                                             |
-    | ----------------------------------------- | ---------------------------------------------------------------- |
-    | Inexpensive                               | Requires external components and support circuitry for interface |
-    | Compatible with PSoC                      | Needs special PCB layout.                                        |
-    | Meets surface mount constraint of project |
+**Choice:** Option 1: FR 8 - 8 OHM speaker
 
-1. CTX936TR-ND surface mount oscillator
+**Rationale:** The FR 8 - 8 OHM is the preferred choice because its nominal 8-ohm impedance can be compatible with a wide range of audio amplifier circuits designed for 8-ohm loads. Its suitability for the project will depend on its rated power handling, sensitivity, physical dimensions, and frequency response. These specifications should be confirmed before finalizing the circuit and enclosure design.
 
-    ![](image3.png)
+### 9V 3A Unregulated Power Supply
 
-    * $1/each
-    * [Link to product](http://www.digikey.com/product-detail/en/636L3I001M84320/CTX936TR-ND/2292940)
+**DC Power Input Connectors**
 
-    | Pros                                                              | Cons                |
-    | ----------------------------------------------------------------- | ------------------- |
-    | Outputs a square wave                                             | More expensive      |
-    | Stable over operating temperature                                 | Slow shipping speed |
-    | Direct interface with PSoC (no external circuitry required) range |
+*Note: PJ-102AH, PJ-050AH, and RAPC722X are connector part numbers, not complete power supplies. The comparison below concerns their suitability for connecting an external 9V, 3A supply.*
 
-**Choice:** Option 2: CTX936TR-ND surface mount oscillator
+| **Solution** | **Pros** | **Cons** |
+| --- | --- | --- |
+| PJ-102AH | \* Through-hole, right-angle barrel jack<br>\* 5.5 mm outer diameter and 2.0 mm inner diameter<br>\* Rated for up to 5A<br>\* Suitable current rating for a 3A supply | \* Requires a matching 5.5 mm / 2.0 mm plug<br>\* Right-angle orientation constrains PCB layout<br>\* Rated for 24V DC maximum, not a voltage regulator |
+| PJ-050AH | \* Alternative barrel-jack option<br>\* May provide a compact power-input connection<br>\* Can be used if its dimensions and ratings match the supply | \* Exact dimensions and current rating must be verified<br>\* Plug compatibility must be confirmed<br>\* Must not be assumed to support 3A without datasheet verification |
+| RAPC722X | \* Alternative DC power connector<br>\* May offer a suitable panel-mount or chassis connection, depending on its specification<br>\* Can simplify external power connections | \* Exact connector configuration and current rating must be verified<br>\* May require additional mounting space<br>\* Requires a matching plug and compatible wiring |
 
-**Rationale:** A clock oscillator is easier to work with because it requires no external circuitry in order to interface with the PSoC. This is particularly important because we are not sure of the electrical characteristics of the PCB, which could affect the oscillation of a crystal. While the shipping speed is slow, according to the website if we order this week it will arrive within 3 weeks.
+**Choice:** Option 1: PJ-102AH DC power connector
+
+**Rationale:** The PJ-102AH is the preferred choice because its documented current rating of up to 5A exceeds the project's 3A requirement. Its through-hole, right-angle configuration is suitable for PCB mounting. The mating plug must match the connector's dimensions, and the power supply's polarity must be verified before connecting it to the circuit.
+
+### Batteries
+
+**9V Batteries**
+
+| **Solution** | **Pros** | **Cons** |
+| --- | --- | --- |
+| EN22 | \* Standard 9V battery format<br>\* Convenient replacement option<br>\* Suitable for low-power electronics and intermittent use<br>\* Widely available battery type | \* Not suitable for sustained 3A loads<br>\* High current draw causes significant voltage drop and short runtime<br>\* Disposable battery replacement adds recurring cost<br>\* Performance depends on load and temperature |
+| A1604 BK210J | \* Standard 9V battery format<br>\* Convenient and widely compatible with 9V battery holders<br>\* Simple to replace<br>\* Suitable for low-current portable applications | \* Limited capacity at high current draws<br>\* Voltage drops as the battery discharges<br>\* Not ideal for sustained 3A loads<br>\* Battery chemistry and discharge characteristics must be verified |
+| 6LF22XWA/B | \* Standard 9V battery format<br>\* Convenient for portable devices<br>\* No charging circuitry required if used as a primary battery<br>\* Suitable for intermittent, low-current loads | \* Not suitable for sustained 3A loads<br>\* Voltage sag and short runtime at high currents<br>\* Capacity depends on discharge rate and battery chemistry<br>\* Exact manufacturer specifications should be confirmed |
+
+**Choice:** Option 1: A1604 BK210J 9V battery
+
+**Rationale:** The A1604 BK210J is the preferred choice because its standard 9V format is convenient to integrate into a portable circuit and easy to replace. It is most appropriate for low-current operation or intermittent loads. If the project requires a sustained current approaching 3A, this battery is not suitable; a higher-capacity rechargeable battery pack designed for the required discharge current should be considered instead.
+
+### Battery Connector
+
+| Solution | NA   | NA   |
+| -------- | ---- | ---- |
+| 232      | <br> | <br> |
+
+
