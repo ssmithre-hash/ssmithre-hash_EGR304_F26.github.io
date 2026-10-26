@@ -16,19 +16,15 @@ for<br>
 
 ## Introduction
 
-* This needs to be updated so that a reader gets an idea of the purpose of this datasheet. Hello there! This is Stellan Smith-Rel EGR 304 project datasheet. This introduction will be further updated as time goes on. TEST_TEST
+* Hello there! This is Stellan Smith-Rel EGR 304 project datasheet. This datasheet will go over my EGR 304 Team 203 Project Component.
 
 ### Project Summary
 
-* This needs to be updated to reflect <ins>your version</ins> of the team project, so when shared not via the team's report, the reader gets an idea of the direction of the project and how your work will contribute to the overall success.
-* Add context that ties into the link to your [team report.](https://embedded-systems-design.github.io/EGR304TeamTemplate/)
+* Our project is a customizable cat toy, that features several components, including a motor, speaker, microphone, and pressure sensor.
+* Please see our [team report](https://egr304-2026-f-203.github.io/EGR304_Team203.github.io/) for further info.
 
 
 ### My Contribution
 
-* This needs to be updated to reflect a team introduction
-* Content should also help an unfamiliar reader navigate to areas of interest. Information like:
-
-To review the details listed of the material used to construct the subsection, you can review it in the ["BOM"](https://embedded-systems-design.github.io/EGR304DataSheetTemplate/03-BOM/BOM/) section of the datasheet.
-
-For all the sections
+* My contribution is the "brain" of the board, which will receive and send signals to the other boards, as well as operate a speaker component of the toy.
+* Please feel free to look through the various sections of this report, including the [block diagram](https://ssmithre-hash.github.io/ssmithre-hash_EGR304_F26.github.io/01-Block-Diagram/Block-Diagram/), the [component selection](https://ssmithre-hash.github.io/ssmithre-hash_EGR304_F26.github.io/02-Component-Selection/Component-Selection/), the [schematic](https://ssmithre-hash.github.io/ssmithre-hash_EGR304_F26.github.io/04-Schematic/schematic//), and the [power budget](https://ssmithre-hash.github.io/ssmithre-hash_EGR304_F26.github.io/05-Power-Budget/Power-Budget/)
