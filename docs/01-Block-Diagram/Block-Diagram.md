@@ -14,4 +14,4 @@ This block diagram goes over how the central hub of the EGR 304 Team 203 combine
 ##  Block Diagram 
 Stellan Smith-Rel Individual Block Diagram
 
-![Example of Indivial Block diagram ](304Diagram.drawio.png)
+![Example of Indivial Block diagram ](304Ind.drawio.png)
