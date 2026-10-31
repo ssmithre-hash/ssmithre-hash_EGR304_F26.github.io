@@ -6,7 +6,7 @@ tags:
 ---
 
 ## Overview
-written context
+This is the Bill of Materials for the hub speaker board. The most notable cost is the speaker, with the voltage regulator also being quite expensive. Fortunately, many components do not need to be ordered, and therefore do not contribute to the budget. 
 
 ## Bill of Materials
 
@@ -28,6 +28,6 @@ written context
 | CFR50J10K 10K Ohm Resistor | 2 | $0.00 | $0.00 | TE Connectivity Passive Product | CFR50J10K | PRLTA 109 | N/A | n/a | 0 | NA | 2 | R12 |
 | PRPC040SACN-RC Header Pins | 6 | $0.95 | $5.70 | Sullins Connector Solutions | PRPC040SACN-RC | Digikey | S1131EC-40-ND | [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/386/xRxCzzzSxxN-RC_ST_11635-B.pdf) | 6 | — | — | J2, J3, J7, J8 |
 | REDLED 151051RS11000 | 4 | $0.00 | $0.00 | Würth Elektronik | 151051RS11000 | PRLTA 109 | N/A | [Datasheet](https://www.we-online.com/components/products/datasheet/151051RS11000.pdf) | 0 | NA | 4 | D3 |
-| Pushbutton Switch, SPST, 3A, 250V | 2 | $0.00 | $0.00 | Multicomp | R13-509A-05-BB | Newark | N/A | n/a | 0 | NA | 2 | SW1 |
+| Pushbutton Switch, SPST, 3A, 250V | 2 | $0.00 | $0.00 | Multicomp | R13-509A-05-BB | PRLTA 109 | N/A | n/a | 0 | NA | 2 | SW1 |
 | 5021 Test Pin | 8 | $0.25 | $2.00 | Keystone Electronics | 5021 | Digikey | 36-5021-ND | [Datasheet](https://www.keyelco.com/userAssets/file/M65p15.pdf) | 8 | — | — | TestPin1,2,3,4 |
 
