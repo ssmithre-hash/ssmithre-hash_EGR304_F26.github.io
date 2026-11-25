@@ -1,3 +1,14 @@
+---
+title: Microcontroller Code
+---
+
+## Overview
+
+This is the code used for the Curiosity Nano Microcontroller. Please refer [*here*](EGR304FinalProject.zip) for the ZIP file of the entire project.
+
+
+## Code
+
 #include "mcc_generated_files/system/system.h"
 #include "mcc_generated_files/dac/dac1.h"
 #include "mcc_generated_files/uart/uart1.h"
